@@ -75,3 +75,19 @@ b{
     font-size: 22px;
     font-weight: 700;
 }
+.myButton{
+    background-color: rgb(101, 161, 214);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+.myButton:hover{
+    background-color: rgb(60, 122, 176) ;
+}
+.res-button{
+    display: flex; 
+    align-items: center; 
+    justify-content: center
+
+}

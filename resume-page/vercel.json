@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/resume/:username",
+        "destination": "/api/resume?username=:username"
+      }
+    ]
+  }
+  
