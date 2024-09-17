@@ -1,4 +1,3 @@
-
 var form = document.getElementById("resumeForm");
 var resumeDiv = document.getElementById("resume");
 
@@ -37,20 +36,28 @@ form.addEventListener("submit", function (event) {
    document.getElementById("resumeExperience").textContent = experience;
     
     resumeDiv.classList.remove("hidden");
+    const resumeHTML = resumeDiv.innerHTML;
     const username = document.getElementById('username').value;
 
-  // Generate the unique URL
-    const uniqueURL = `${window.location.origin}/resume-page/api/resume?username=${username}`;
-    shareLink.href = uniqueURL;
-    shareLink.textContent = uniqueURL;
-});
-downloadButton.addEventListener('click', () => {
-    const resumeContent = document.getElementById('resumeDiv');
+    downloadButton.addEventListener("click", () => {
+      window.print();
+    });
+    shareLink.addEventListener("click", async() =>{
+      try{
+        const ShareLink = `https://yourdomain.com/resumes/${username.replace(/\s+/g, "_")}_resume.html`;
+
+        await navigator.clipboard.writeText(ShareLink);
+        alert("Resume URL Copied to Clipboard!");
+      } catch(err){
+        console.error("Failed to copy Link:", err);
+        alert("Failed to copy link. Please Try Again!");
+      }
+    })
   
-    html2pdf().from(resumeContent).set({
-      filename: 'resume.pdf',
-      jsPDF: { orientation: 'portrait' },
-      html2canvas: { scale: 2 },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-    }).save();
-  });
+
+    
+});
+
+
+
+
