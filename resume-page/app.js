@@ -44,7 +44,7 @@ form.addEventListener("submit", function (event) {
     });
     shareLink.addEventListener("click", async() =>{
       try{
-        const ShareLink = `https://yourdomain.com/resumes/${username.replace(/\s+/g, "_")}_resume.html`;
+        const ShareLink = `https://https://resume-three-beryl.vercel.app/resumes/${username.replace(/\s+/g, "_")}_resume.html`;
 
         await navigator.clipboard.writeText(ShareLink);
         alert("Resume URL Copied to Clipboard!");
